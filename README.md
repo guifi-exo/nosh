@@ -1,13 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
-
-- [nosh](#nosh)
-  - [demo](#demo)
-  - [installation guide (openwrt / lede)](#installation-guide-openwrt--lede)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # nosh
 
 Network Operator Shell
@@ -15,6 +5,15 @@ Network Operator Shell
 a restricted shell with very few commands available: mainly ping and ssh
 
 This is a work based on yeti's contribution on stack overflow, check it here https://stackoverflow.com/a/43793768
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [demo](#demo)
+- [installation guide (openwrt / lede)](#installation-guide-openwrt--lede)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## demo
 
