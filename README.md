@@ -78,18 +78,18 @@ nosh> exit
 
 ## installation guide (openwrt / lede)
 
-  opkg update
+    opkg update
 
 requirement for nosh
 
-  opkg install bash
+    opkg install bash
 
 src https://wiki.openwrt.org/doc/howto/secure.access#create_a_non-privileged_user_in_openwrt
 
-  opkg install shadow-useradd
-  useradd user
-  mkdir -p /home/user
-  chown user /home/user
+    opkg install shadow-useradd
+    useradd user
+    mkdir -p /home/user
+    chown user /home/user
 
 `vi /etc/passwd` => `user:x:1000:1000:user:/home/user:/bin/ash`
 
@@ -99,10 +99,12 @@ download nosh script
 
 ssh public key access
 
-  mkdir /home/user/.ssh
+    mkdir /home/user/.ssh
 
 put
+
 `vi /home/user/.ssh/authorized_keys` => `ssh-rsa (...)`
 
 if you don't do this, ping cannot be ran (?)
-  chmod +s /bin/busybox
+
+    chmod +s /bin/busybox
