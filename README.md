@@ -1,3 +1,13 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [nosh](#nosh)
+  - [demo](#demo)
+  - [installation guide (openwrt / lede)](#installation-guide-openwrt--lede)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # nosh
 
 Network Operator Shell
