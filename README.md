@@ -21,7 +21,7 @@ This is a work based on yeti's contribution on stack overflow, check it here htt
  $ ssh user@exo-ttn
 
 Welcome, user.
-nosh 1.0 - Network Operator Shell, a shell with very few commands available
+nosh 1.1 - Network Operator Shell, a shell with very few commands available
 Source code: https://github.com/guifi-exo/nosh/blob/master/nosh
 Type 'help' for information.
 
