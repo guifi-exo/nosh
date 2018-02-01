@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # nosh - network operator shell
+# version: 1.0
 
 # Original autor Yeti => src https://stackoverflow.com/a/43793768
 # Why don't you write your own login-shell? It would be quite simple to use Bash for this, but you can use any language.
@@ -73,8 +74,8 @@ trycmd()
 # Optionally show a friendly welcome-message with instructions since it is a custom shell
 echo
 echo "Welcome, $USER."
-echo "This is Network Operator Shell - nosh, a shell with very few commands available"
-echo "Source code: [github link]"
+echo "nosh 1.0 - Network Operator Shell, a shell with very few commands available"
+echo "Source code: https://github.com/guifi-exo/nosh/blob/master/nosh"
 echo "Type 'help' for information."
 echo
 echo "Commands are logged, you accessed in $(timestamp)"
