@@ -95,6 +95,9 @@ src https://wiki.openwrt.org/doc/howto/secure.access#create_a_non-privileged_use
 
 download nosh script
 
+    wget https://github.com/guifi-exo/nosh/blob/master/nosh -O /bin/nosh
+    chmod +x /bin/nosh
+
 `vi /etc/shells` => `/bin/nosh`
 
 ssh public key access
