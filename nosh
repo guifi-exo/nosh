@@ -1,0 +1,100 @@
+#!/bin/bash
+
+# nosh - network operator shell
+
+# Original autor Yeti => src https://stackoverflow.com/a/43793768
+# Why don't you write your own login-shell? It would be quite simple to use Bash for this, but you can use any language.
+# Example in Bash
+# Use your favorite editor to create the file /root/rbash.sh (this can be any name or path, but should be chown root:root and chmod 700):
+# All you have to do is set this executable as your login shell. For example, edit your /etc/passwd file, and replace your current login shell of that user /bin/bash with /root/rbash.sh.
+# This is just a simple example, but you can make it as advanced as you want, the idea is there. Be careful to not lock yourself out by changing login shell of your own and only user. And always test weird symbols and commands to see if it is actually secure.
+# You can test it with: su -s /root/rbash.sh.
+# Beware, make sure to match the whole command, and be careful with wildcards! Better exclude Bash-symbols such as ;, &, &&, ||, $, and backticks to be sure.
+# Depending on the freedom you give the user, it won't get much safer than this. I've found that often I only needed to make a user that has access to only a few relevant commands, and in that case this is really the better solution. However, do you wish to give more freedom, a jail and permissions might be more appropriate. Mistakes are easily made, and only noticed when it's already too late.
+
+# This version is prepared for openwrt
+
+commands=("ping" "ssh" "uptime")
+timestamp(){ date +'%Y-%m-%s %H:%M:%S'; }
+log(){ echo -e "$(timestamp)\t$1\t$USER\t$2" >> /tmp/nosh.log; }
+trycmd()
+{
+    # Provide an option to exit the shell
+    if [[ "$ln" == "exit" ]] || [[ "$ln" == "q" ]]
+    then
+        exit
+
+    # You can do exact string matching for some alias:
+    elif [[ "$ln" == "help" ]]
+    then
+        echo "Type exit or q to quit."
+        echo "Commands you can use:"
+        echo "  help"
+        echo "${commands[@]}" | tr ' ' '\n' | awk '{print "  " $0}'
+
+    elif [[ "$ln" == "" ]]
+    then
+        echo
+
+    elif [[ "$ln" =~ ^ping\ .*$ ]]
+    then
+        ln="${ln:5}"
+        ping "$ln"
+
+        log COMMAND "ping $ln"
+
+    elif [[ "$ln" =~ ^ssh\ .*$ ]]
+    then
+        ln="${ln:4}"
+        ssh "$ln"
+
+        log COMMAND "ssh $ln"
+
+    # Or you could even check an array of commands:
+    else
+        ok=false
+        for cmd in "${commands[@]}"
+        do
+            if [[ "$cmd" == "$ln" ]]
+            then
+                ok=true
+            fi
+        done
+        if $ok
+        then
+            $ln
+        else
+            log DENIED "$cmd"
+            echo "command disabled"
+        fi
+    fi
+}
+
+# Optionally show a friendly welcome-message with instructions since it is a custom shell
+echo
+echo "Welcome, $USER."
+echo "This is Network Operator Shell - nosh, a shell with very few commands available"
+echo "Source code: [github link]"
+echo "Type 'help' for information."
+echo
+echo "Commands are logged, you accessed in $(timestamp)"
+echo
+
+# Optionally log the login
+log LOGIN "$@"
+
+# Optionally log the logout
+trap "trap=\"\";log LOGOUT;exit" EXIT
+
+# Optionally check for '-c custom_command' arguments passed directly to shell
+# Then you can also use ssh user@host custom_command, which will execute /root/rbash.sh
+if [[ "$1" == "-c" ]]
+then
+    shift
+    trycmd "$@"
+else
+    while echo -n "nosh> " && read ln
+    do
+        trycmd "$ln"
+    done
+fi
