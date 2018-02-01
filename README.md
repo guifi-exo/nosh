@@ -2,9 +2,9 @@
 
 Network Operator Shell
 
-a shell with very few commands available: mainly ping and ssh
+a restricted shell with very few commands available: mainly ping and ssh
 
-This is a work based on yeti's contribution on stack overflow in https://stackoverflow.com/a/43793768
+This is a work based on yeti's contribution on stack overflow, check it here https://stackoverflow.com/a/43793768
 
 ## demo
 
