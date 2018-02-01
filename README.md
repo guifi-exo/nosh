@@ -79,9 +79,13 @@ nosh> exit
 ## installation guide (openwrt / lede)
 
   opkg update
+
 requirement for nosh
+
   opkg install bash
+
 src https://wiki.openwrt.org/doc/howto/secure.access#create_a_non-privileged_user_in_openwrt
+
   opkg install shadow-useradd
   useradd user
   mkdir -p /home/user
