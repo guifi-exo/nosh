@@ -24,10 +24,10 @@ trycmd()
     then
         exit
 
-    # illegal symbols
-    elif [[ "$ln" =~ [\;\&\|\$\<\>\(\)\{\}\[] ]]
+    # illegal symbols; bash symbols -> src https://www.tldp.org/LDP/abs/html/special-chars.html
+    elif [[ "$ln" =~ [\;\&\|\$\<\>\(\)\{\}\[\!\*\?\=\+\%\^] ]]
     then
-        echo 'You cannot use the following symbols: ;, &, |, $, <, >, `, (, ), {, }, ['
+        echo 'You cannot use the following symbols: ;, &, |, $, <, >, `, (, ), {, }, [, !, *, ?, =, +, %, ^'
 
     # You can do exact string matching for some alias:
     elif [[ "$ln" == "help" ]]
