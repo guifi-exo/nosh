@@ -30,14 +30,6 @@ execute commands remotely:
 
 ```
 ssh root@192.0.2.1 ping wikipedia.org
-
-Welcome, user.
-nosh 1.2 - Network Operator Shell, a shell with very few commands available
-Source code: https://github.com/guifi-exo/nosh/blob/master/nosh
-Type 'help' or 'h' for information.
-
-Commands are logged, you accessed in 2018-02-1517578266 14:31:06
-
 PING wikipedia.org (91.198.174.192): 56 data bytes
 64 bytes from 91.198.174.192: seq=0 ttl=54 time=33.452 ms
 64 bytes from 91.198.174.192: seq=1 ttl=54 time=32.981 ms
