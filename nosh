@@ -92,6 +92,7 @@ trap "trap=\"\";log LOGOUT;exit" EXIT
 if [[ "$1" == "-c" ]]
 then
     shift
+    ln="$@"
     trycmd "$@"
 else
     while echo -n "nosh> " && read ln
