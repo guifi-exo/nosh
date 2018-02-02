@@ -118,3 +118,14 @@ ssh public key access
 put
 
 `vi /home/user/.ssh/authorized_keys` => `ssh-rsa (...)`
+
+## Resources
+
+- learning / code resources
+    - http://www.gnu.org/software/libc/manual/html_node/Implementing-a-Shell.html#Implementing-a-Shell
+    - https://stackoverflow.com/questions/4788374/writing-a-basic-shell
+    - https://www.cs.purdue.edu/homes/grr/SystemsProgrammingBook/Book/Chapter5-WritingYourOwnShell.pdf
+- other restricted shells (generic)
+    - https://git-scm.com/docs/git-shell
+    - http://www.pizzashack.org/rssh/
+    - https://github.com/jmreyes/simple-c-shell
