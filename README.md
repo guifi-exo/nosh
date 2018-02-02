@@ -47,6 +47,8 @@ remember that with ssh config you can end up with something like:
 
 check this article how you can do it: https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/
 
+**known problem**: `mtr` does not open through `ssh`, you will get `Error opening terminal: unknown.`
+
 ### CLI
 
 ```
@@ -62,9 +64,12 @@ Commands are logged, you accessed in 2018-02-1517505916 18:25:16
 nosh> help
 Type exit or q to quit.
 Commands you can use:
-  help
+  help or h
   ping
   ssh
+  mtr
+  traceroute
+  nc
   uptime
 nosh> rm
 command disabled
