@@ -20,7 +20,7 @@ trycmd()
 {
 
     # Provide an option to exit the shell
-    if [[ "$ln" == "exit" ]] || [[ "$ln" == "q" ]]
+    if [[ "$ln" == "exit" ]] || [[ "$ln" == "q" ]] || [[ "$ln" == "quit" ]]
     then
         exit
 
@@ -30,11 +30,11 @@ trycmd()
         echo 'You cannot use the following symbols: ;, &, |, $, <, >, `, (, ), {, }, [, !, *, ?, =, +, %, ^'
 
     # You can do exact string matching for some alias:
-    elif [[ "$ln" == "help" ]]
+    elif [[ "$ln" == "help" ]] || [[ "$ln" == "h" ]]
     then
-        echo "Type exit or q to quit."
+        echo "Type 'exit', 'quit' or 'q' to quit."
         echo "Commands you can use:"
-        echo "  help"
+        echo "  help or h"
         echo "${commands[@]}" | tr ' ' '\n' | awk '{print "  " $0}'
 
     elif [[ "$ln" == "" ]]
@@ -106,7 +106,7 @@ echo
 echo "Welcome, $USER."
 echo "nosh 1.2 - Network Operator Shell, a shell with very few commands available"
 echo "Source code: https://github.com/guifi-exo/nosh/blob/master/nosh"
-echo "Type 'help' for information."
+echo "Type 'help' or 'h' for information."
 echo
 echo "Commands are logged, you accessed in $(timestamp)"
 echo
