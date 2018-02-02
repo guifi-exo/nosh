@@ -45,6 +45,14 @@ trycmd()
     then
         echo
 
+    # TODO use getopt
+    elif [[ "$ln" =~ ^$'ping -n'\ .*$ ]]
+    then
+        ln="${ln:8}"
+        ping -n "$ln"
+
+        log COMMAND "ping -n $ln"
+
     elif [[ "$ln" =~ ^ping\ .*$ ]]
     then
         ln="${ln:5}"
@@ -65,6 +73,14 @@ trycmd()
         mtr "$ln"
 
         log COMMAND "mtr $ln"
+
+    # TODO use getopt
+    elif [[ "$ln" =~ ^$'traceroute -n'\ .*$ ]]
+    then
+        ln="${ln:14}"
+        traceroute -n "$ln"
+
+        log COMMAND "traceroute -n $ln"
 
     elif [[ "$ln" =~ ^traceroute\ .*$ ]]
     then
