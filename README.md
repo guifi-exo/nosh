@@ -24,6 +24,39 @@ This is a work based on yeti's contribution on stack overflow, check it here htt
 
 ## demo
 
+### send commands through ssh
+
+execute commands remotely:
+
+```
+ssh root@192.0.2.1 ping wikipedia.org
+
+Welcome, user.
+nosh 1.2 - Network Operator Shell, a shell with very few commands available
+Source code: https://github.com/guifi-exo/nosh/blob/master/nosh
+Type 'help' or 'h' for information.
+
+Commands are logged, you accessed in 2018-02-1517578266 14:31:06
+
+PING wikipedia.org (91.198.174.192): 56 data bytes
+64 bytes from 91.198.174.192: seq=0 ttl=54 time=33.452 ms
+64 bytes from 91.198.174.192: seq=1 ttl=54 time=32.981 ms
+```
+
+Or perform a ssh proxy command
+
+Supposing nosh is installed in 192.0.2.1 and I want to access 192.0.2.2 (named myhost)
+
+    ssh -o ProxyCommand='ssh root@192.0.2.1 nc 192.0.2.2 22' root@192.0.2.2
+
+remember that with ssh config you can end up with something like:
+
+    ssh myhost
+
+check this article how you can do it: https://www.cyberciti.biz/faq/linux-unix-ssh-proxycommand-passing-through-one-host-gateway-server/
+
+### CLI
+
 ```
  $ ssh user@exo-ttn
 
@@ -41,25 +74,6 @@ Commands you can use:
   ping
   ssh
   uptime
-nosh> ping
-BusyBox v1.25.1 () multi-call binary.
-
-Usage: ping [OPTIONS] HOST
-
-Send ICMP ECHO_REQUEST packets to network hosts
-
-    -4,-6       Force IP or IPv6 name resolution
-    -c CNT      Send only CNT pings
-    -s SIZE     Send SIZE data bytes in packets (default:56)
-    -t TTL      Set TTL
-    -I IFACE/IP Use interface or IP address as source
-    -W SEC      Seconds to wait for the first response (default:10)
-            (after all -c CNT packets are sent)
-    -w SEC      Seconds until ping exits (default:infinite)
-            (can exit earlier with -c CNT)
-    -q      Quiet, only display output at start
-            and when finished
-    -p      Pattern to use for payload
 nosh> rm
 command disabled
 nosh> ls
