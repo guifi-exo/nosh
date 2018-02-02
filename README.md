@@ -84,6 +84,8 @@ requirement for nosh
 
     opkg install bash
     opkg install mtr # because this command is used by network operators
+    chmod +s /usr/sbin/mtr # allow unprivileged user execution => src https://makandracards.com/bitcrowd/23800-mtr-says-mtr-unable-to-get-raw-sockets
+    chmod +s /bin/busybox # allow unprivileged user execution, without this you cannot ping
 
 src https://wiki.openwrt.org/doc/howto/secure.access#create_a_non-privileged_user_in_openwrt
 
@@ -108,7 +110,3 @@ ssh public key access
 put
 
 `vi /home/user/.ssh/authorized_keys` => `ssh-rsa (...)`
-
-if you don't do this, ping cannot be ran (?)
-
-    chmod +s /bin/busybox
