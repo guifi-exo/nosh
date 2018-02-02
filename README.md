@@ -21,7 +21,7 @@ This is a work based on yeti's contribution on stack overflow, check it here htt
  $ ssh user@exo-ttn
 
 Welcome, user.
-nosh 1.1 - Network Operator Shell, a shell with very few commands available
+nosh 1.2 - Network Operator Shell, a shell with very few commands available
 Source code: https://github.com/guifi-exo/nosh/blob/master/nosh
 Type 'help' for information.
 
@@ -83,6 +83,7 @@ nosh> exit
 requirement for nosh
 
     opkg install bash
+    opkg install mtr # because this command is used by network operators
 
 src https://wiki.openwrt.org/doc/howto/secure.access#create_a_non-privileged_user_in_openwrt
 
