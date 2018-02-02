@@ -116,6 +116,8 @@ log LOGIN "$@"
 
 # Optionally log the logout
 trap "trap=\"\";log LOGOUT;exit" EXIT
+# Trap Ctrl-C / ^C (signal 2) to avoid exit this way -> src https://www.cyberciti.biz/faq/unix-linux-shell-scripting-disable-controlc/
+trap '' 2
 
 # Optionally check for '-c custom_command' arguments passed directly to shell
 # Then you can also use ssh user@host custom_command, which will execute /root/rbash.sh
@@ -125,8 +127,12 @@ then
     ln="$@"
     trycmd "$@"
 else
-    while echo -n "nosh> " && read ln
+    # note: tab completion cannot be provided -> src https://stackoverflow.com/questions/4726695/bash-and-readline-tab-completion-in-a-user-input-loop
+    # -e enables readline capabilities
+    while read -p "nosh> " -e ln
     do
+        # because readline functionality -> src https://www.unix.com/shell-programming-and-scripting/253648-bash-read-history-function-read-arrowkeys.html
+        history -s "$ln"
         trycmd "$ln"
     done
 fi
