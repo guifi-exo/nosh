@@ -105,16 +105,6 @@ trycmd()
     fi
 }
 
-# Optionally show a friendly welcome-message with instructions since it is a custom shell
-echo
-echo "Welcome, $USER."
-echo "nosh 1.2 - Network Operator Shell, a shell with very few commands available"
-echo "Source code: https://github.com/guifi-exo/nosh/blob/master/nosh"
-echo "Type 'help' or 'h' for information."
-echo
-echo "Commands are logged, you accessed in $(timestamp)"
-echo
-
 # Optionally log the login
 log LOGIN "$@"
 
@@ -131,6 +121,17 @@ then
     ln="$@"
     trycmd "$@"
 else
+
+    # Optionally show a friendly welcome-message with instructions since it is a custom shell
+    echo
+    echo "Welcome, $USER."
+    echo "nosh 1.2 - Network Operator Shell, a shell with very few commands available"
+    echo "Source code: https://github.com/guifi-exo/nosh/blob/master/nosh"
+    echo "Type 'help' or 'h' for information."
+    echo
+    echo "Commands are logged, you accessed in $(timestamp)"
+    echo
+
     # note: tab completion cannot be provided -> src https://stackoverflow.com/questions/4726695/bash-and-readline-tab-completion-in-a-user-input-loop
     # -e enables readline capabilities
     while read -p "nosh> " -e ln
