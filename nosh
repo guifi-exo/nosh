@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # nosh - network operator shell
-# version: 1.0
+# version: 1.2
 
 # Original autor Yeti => src https://stackoverflow.com/a/43793768
 # Why don't you write your own login-shell? It would be quite simple to use Bash for this, but you can use any language.

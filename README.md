@@ -2,7 +2,14 @@
 
 Network Operator Shell
 
-a restricted shell with very few commands available: mainly ping and ssh
+a restricted shell with very few commands available, right now:
+
+- `ping`
+- `ssh`
+- `mtr`
+- `traceroute`
+- `nc`
+- `uptime`
 
 This is a work based on yeti's contribution on stack overflow, check it here https://stackoverflow.com/a/43793768
 
