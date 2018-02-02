@@ -14,7 +14,8 @@
 # Depending on the freedom you give the user, it won't get much safer than this. I've found that often I only needed to make a user that has access to only a few relevant commands, and in that case this is really the better solution. However, do you wish to give more freedom, a jail and permissions might be more appropriate. Mistakes are easily made, and only noticed when it's already too late.
 
 # src https://unix.stackexchange.com/questions/29494/disable-bash-tab-completion
-bind 'set disable-completion on'
+# warning I'm ignoring is: `bind: warning: line editing not enabled`
+bind 'set disable-completion on' &> /dev/null
 
 commands=("ping" "ssh" "mtr" "traceroute" "nc" "uptime")
 timestamp(){ date +'%Y-%m-%s %H:%M:%S'; }
