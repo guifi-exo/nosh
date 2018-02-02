@@ -20,10 +20,16 @@ timestamp(){ date +'%Y-%m-%s %H:%M:%S'; }
 log(){ echo -e "$(timestamp)\t$1\t$USER\t$2" >> /tmp/nosh.log; }
 trycmd()
 {
+
     # Provide an option to exit the shell
     if [[ "$ln" == "exit" ]] || [[ "$ln" == "q" ]]
     then
         exit
+
+    # illegal symbols
+    elif [[ "$ln" =~ [\;\&\|\$\<\>\(\)\{\}\[] ]]
+    then
+        echo 'You cannot use the following symbols: ;, &, |, $, <, >, `, (, ), {, }, ['
 
     # You can do exact string matching for some alias:
     elif [[ "$ln" == "help" ]]
@@ -65,12 +71,17 @@ trycmd()
 
         log COMMAND "traceroute $ln"
 
-    elif [[ "$ln" =~ ^nc\ .*$ ]]
+    # validate IPv4 and port for nc command
+    elif [[ "$ln" =~ ^nc\ [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\ [0-9]{1,5}$ ]]
     then
         ln="${ln:3}"
-        nc "$ln"
+        eval nc "$ln"
 
         log COMMAND "nc $ln"
+
+    elif [[ "$ln" =~ ^nc\ .*$ ]]
+    then
+        echo "nc is extraprotected because uses dangerous eval. It only supports IPv4. You need IPv6? Fill an issue and tell us specific use case."
 
     # Or you could even check an array of commands:
     else
