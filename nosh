@@ -71,7 +71,7 @@ trycmd()
 
         log COMMAND "traceroute $ln"
 
-    # validate IPv4 and port for nc command
+    # validate IPv4 and port for nc command -> src http://www.linuxjournal.com/content/validating-ip-address-bash-script
     elif [[ "$ln" =~ ^nc\ [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\ [0-9]{1,5}$ ]]
     then
         ln="${ln:3}"
