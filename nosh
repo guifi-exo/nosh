@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # nosh - network operator shell
-# version: 1.2
+version="1.3"
+
+set +x
 
 # Original autor Yeti => src https://stackoverflow.com/a/43793768
 # Why don't you write your own login-shell? It would be quite simple to use Bash for this, but you can use any language.
@@ -140,7 +142,7 @@ else
     # Optionally show a friendly welcome-message with instructions since it is a custom shell
     echo
     echo "Welcome, $USER."
-    echo "nosh 1.2 - Network Operator Shell, a shell with very few commands available"
+    echo "nosh $version - Network Operator Shell, a shell with very few commands available"
     echo "Source code: https://github.com/guifi-exo/nosh/blob/master/nosh"
     echo "Type 'help' or 'h' for information."
     echo
