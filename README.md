@@ -18,13 +18,16 @@ This is a work based on yeti's contribution on stack overflow, check it here htt
 **Table of Contents**
 
 - [demo](#demo)
+  - [send commands through ssh](#send-commands-through-ssh)
+  - [CLI](#cli)
 - [installation guide (openwrt / lede)](#installation-guide-openwrt--lede)
+- [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## demo
+## Demo
 
-### send commands through ssh
+### Send commands through ssh
 
 execute commands remotely:
 
@@ -94,7 +97,7 @@ ssh: Connection to git@github.com:22 exited: No auth methods could be used.
 nosh> exit
 ```
 
-## installation guide (openwrt / lede)
+## Installation guide (openwrt / lede)
 
     opkg update
 
