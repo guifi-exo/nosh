@@ -4,7 +4,7 @@ Network Operator Shell
 
 a restricted shell with very few commands available, right now:
 
-- `ping`
+- `oping`
 - `ssh`
 - `mtr`
 - `traceroute`
@@ -32,7 +32,7 @@ This is a work based on yeti's contribution on stack overflow, check it here htt
 execute commands remotely:
 
 ```
-ssh root@192.0.2.1 ping wikipedia.org
+ssh root@192.0.2.1 oping wikipedia.org
 PING wikipedia.org (91.198.174.192): 56 data bytes
 64 bytes from 91.198.174.192: seq=0 ttl=54 time=33.452 ms
 64 bytes from 91.198.174.192: seq=1 ttl=54 time=32.981 ms
@@ -68,7 +68,7 @@ nosh> help
 Type exit or q to quit.
 Commands you can use:
   help or h
-  ping
+  oping
   ssh
   mtr
   traceroute
@@ -78,7 +78,7 @@ nosh> rm
 command disabled
 nosh> ls
 command disabled
-nosh> ping wikipedia.org
+nosh> oping wikipedia.org
 PING wikipedia.org (91.198.174.192): 56 data bytes
 64 bytes from 91.198.174.192: seq=0 ttl=54 time=33.043 ms
 64 bytes from 91.198.174.192: seq=1 ttl=54 time=32.887 ms
@@ -106,8 +106,7 @@ requirement for nosh
     opkg install bash
     opkg install mtr # because this command is used by network operators
     chmod +s /usr/sbin/mtr # allow unprivileged user execution => src https://makandracards.com/bitcrowd/23800-mtr-says-mtr-unable-to-get-raw-sockets
-    chmod +s /bin/busybox # allow unprivileged user execution (you are probably giving root to unpriviliged user) but without this you cannot ping
-    # note: this is very dangerous, I hope given the use case: dedicated router/VM for just this task is fine. If you are doing more things TAKE CARE
+    # note: this is probably dangerous, I hope given the use case: dedicated router/VM for just this task is fine. If you are doing more things TAKE CARE
 
 src https://wiki.openwrt.org/doc/howto/secure.access#create_a_non-privileged_user_in_openwrt
 
