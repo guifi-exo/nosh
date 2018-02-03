@@ -58,7 +58,7 @@ check this article how you can do it: https://www.cyberciti.biz/faq/linux-unix-s
  $ ssh user@exo-ttn
 
 Welcome, user.
-nosh 1.3 - Network Operator Shell, a shell with very few commands available
+nosh 1.4 - Network Operator Shell, a shell with very few commands available
 Source code: https://github.com/guifi-exo/nosh/blob/master/nosh
 Type 'help' for information.
 
