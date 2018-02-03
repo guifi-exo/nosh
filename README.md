@@ -17,10 +17,10 @@ This is a work based on yeti's contribution on stack overflow, check it here htt
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
-- [demo](#demo)
-  - [send commands through ssh](#send-commands-through-ssh)
+- [Demo](#demo)
+  - [Send commands through ssh](#send-commands-through-ssh)
   - [CLI](#cli)
-- [installation guide (openwrt / lede)](#installation-guide-openwrt--lede)
+- [Installation guide (openwrt / lede)](#installation-guide-openwrt--lede)
 - [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
