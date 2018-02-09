@@ -106,6 +106,8 @@ requirement for nosh
     opkg install bash
     opkg install mtr # because this command is used by network operators
     chmod +s /usr/sbin/mtr # allow unprivileged user execution => src https://makandracards.com/bitcrowd/23800-mtr-says-mtr-unable-to-get-raw-sockets
+    chmod +s /usr/bin/oping # same note
+    chmod +s /bin/busybox # allow unprivileged user execution (you are probably giving root to unpriviliged user) but without this you cannot ping
     # note: this is probably dangerous, I hope given the use case: dedicated router/VM for just this task is fine. If you are doing more things TAKE CARE
 
 src https://wiki.openwrt.org/doc/howto/secure.access#create_a_non-privileged_user_in_openwrt

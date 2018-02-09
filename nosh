@@ -19,7 +19,7 @@ set +x
 # ignoring warning `bind: warning: line editing not enabled`
 bind 'set disable-completion on' &> /dev/null
 
-commands=("uptime" "oping" "traceroute" "ssh" "mtr" "nc")
+commands=("uptime" "ping" "oping" "traceroute" "ssh" "mtr" "nc")
 timestamp(){ date +'%Y-%m-%s %H:%M:%S'; }
 log(){ echo -e "$(timestamp)\t$1\t$USER\t$2" >> /tmp/nosh.log; }
 trycmd()
